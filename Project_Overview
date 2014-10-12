@@ -1,0 +1,26 @@
+
+Based on interest in movies and my discovery of the Rotten Tomatoes API, I present:
+
+#############################################################################
+#~#~#~#~#  Raspberry or Oscar: Prediction based on Rotten Tomatoes  #~#~#~#~#
+#############################################################################
+
+
+I found an API for rotten tomatoes that looks very usable; its link is below.
+
+http://developer.rottentomatoes.com/docs
+
+
+From this I could pull a critic rating, viewer rating, critic consensus, Mpaa rating, actors, year produced, etc. 
+I think there could be some really interesting analysis on the most commonly used words in the critic consensus for a given
+critic rating and viewer rating.  Also, it would be interesting to see the most stable actors and most changing actors based 
+on movie ratings.  
+
+
+A big idea for this project would be to create a prediction model to predict movie earnings based on the information gained
+from rotten tomatoes and match it to how much money it grossed.  Unfortunately, rotten tomatoes does not have the grossed or 
+budgeted money information.  I found this source that appears reputable, although I'm not sure how I would pull this information
+from the website (sourced below).
+ 
+
+http://www.the-numbers.com/movie/budgets/all
