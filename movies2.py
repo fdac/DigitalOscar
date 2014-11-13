@@ -41,7 +41,7 @@ def getMovies(q):
       #else:
         #print 'Page '+ str(i) + ': ' + movieTitle + ' is already in the collection movies.'
 
-    time.sleep(2)
+    time.sleep(1)
 
   return
   # End of function getMovies(str q).
@@ -55,7 +55,7 @@ def countApiToppers(q):
 
   if totalMovies > 1250: 
     print q + ': ' + str(totalMovies)
-  time.sleep(5)
+  time.sleep(2)
 
 
 client = pymongo.MongoClient('da0.eecs.utk.edu')
@@ -64,10 +64,11 @@ client = pymongo.MongoClient('da0.eecs.utk.edu')
 db = client['rt']
 movies = db.movies
 
+combos = ['ab', 'ac', 'ad', 'af', 'ag', 'al', 'am', 'an', 'ar', 'as', 'at', 'au', 'ba', 'be', 'bi', 'bl', 'bo', 'br', 'bu', 'ca', 'ce', 'ch', 'ci', 'cl', 'co', 'cr', 'cu', 'da', 'de', 'di', 'do', 'dr', 'du', 'ea', 'el', 'en', 'es', 'ev', 'ex', 'fa', 'fe', 'fi', 'fl', 'fo', 'fr', 'fu', 'ga', 'ge', 'gi', 'gl', 'go', 'gr', 'gu', 'ha', 'he', 'hi', 'ho', 'hu', 'ii', 'im', 'in', 'is', 'it', 'iv', 'ja', 'je', 'jo', 'ju', 'ka', 'ke', 'ki', 'ko', 'la', 'le', 'li', 'lo', 'lr', 'lu', 'ma', 'me', 'mi', 'mo', 'mu', 'my', 'na', 'ne', 'ni', 'no', 'of', 'on', 'op', 'or', 'ou', 'pa', 'pe', 'pi', 'pl', 'po', 'pr', 'pu', 'qd', 'qf', 'qg', 'qm', 'qn', 'qr', 'qu', 'ra', 're', 'ri', 'ro', 'ru', 'sa', 'sc', 'se', 'sh', 'si', 'sk', 'so', 'sp', 'st', 'su', 'sw', 'ta', 'te', 'th', 'ti', 'to', 'tr', 'tu', 'tw', 'un', 'up', 'va', 've', 'vo', 'wa', 'we', 'wh', 'wi', 'wl', 'wo', 'yb', 'ye', 'yo', 'zf']
 letters = string.lowercase
 
-for a in letters: 
-  for b in letters: 
-    countApiToppers(a+b)
+for c in combos: 
+  for a in letters: 
+    countApiToppers(c+a)
 
 client.close()
