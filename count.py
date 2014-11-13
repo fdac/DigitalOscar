@@ -1,4 +1,4 @@
-#!/bin/python
+#!/usr/bin/python
 # This script prints the number of documents in the rt collection movies.
 
 import pymongo

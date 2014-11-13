@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import json, pymongo, time, urllib2
+import json, pymongo, string, time, urllib2
 
 BASE_URL = 'http://api.rottentomatoes.com/api/public/v1.0/movies.json'
 PAGE_LIMIT = '50'	# 50 is the API maximum. 
@@ -46,14 +46,28 @@ def getMovies(q):
   return
   # End of function getMovies(str q).
 
+# Count the the number of two-letter search parameters between aa and zz that return more than 1150 results. 
+def countApiToppers(q): 
+  response = urllib2.urlopen(BASE_URL+'?apikey='+API_KEY+'&page=1&page_limit='+PAGE_LIMIT+'&q='+q).read()
+  respDict = json.loads(response)
+  
+  totalMovies = respDict['total']
+
+  if totalMovies > 1250: 
+    print q + ': ' + str(totalMovies)
+  time.sleep(5)
+
+
 client = pymongo.MongoClient('da0.eecs.utk.edu')
 
 # Get a reference to the Mongo database we will be using. It is named rt. 
 db = client['rt']
 movies = db.movies
 
+letters = string.lowercase
+
 for a in letters: 
   for b in letters: 
-    getMovies(a+b)
+    countApiToppers(a+b)
 
 client.close()
