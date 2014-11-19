@@ -64,17 +64,17 @@ client = pymongo.MongoClient('da0.eecs.utk.edu')
 db = client['rt']
 movies = db.movies
 
-combos = ['po', 'pr', 'pu', 'qd', 'qf', 'qg', 'qm', 'qn', 'qr', 'qu', 'ra', 're', 'ri', 'ro', 'ru', 'sa', 'sc', 'se', 'sh', 'si', 'sk', 'so', 'sp', 'st', 'su', 'sw', 'ta', 'te', 'th', 'ti', 'to', 'tr', 'tu', 'tw', 'un', 'up', 'va', 've', 'vo', 'wa', 'we', 'wh', 'wi', 'wl', 'wo', 'yb', 'ye', 'yo', 'zf']
+combos = ['sa', 'sc', 'se', 'sh', 'si', 'sk', 'so', 'sp', 'st', 'su', 'sw', 'ta', 'te', 'th', 'ti', 'to', 'tr', 'tu', 'tw', 'un', 'up', 'va', 've', 'vo', 'wa', 'we', 'wh', 'wi', 'wl', 'wo', 'yb', 'ye', 'yo', 'zf']
 
 letters = string.lowercase
 
-already = 'abcdefghijklmnopqrstuv'
+already = 'abcdefghijklmno'
 
 for c in combos: 
   for a in letters: 
-    if c == 'mu' and a not in already: 
+    if c == 'sa' and a not in already: 
       getMovies(c+a)
-    elif c != 'mu': 
+    elif c != 'sa': 
       getMovies(c+a)
 
 client.close()
